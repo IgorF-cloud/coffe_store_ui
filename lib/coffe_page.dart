@@ -1,11 +1,7 @@
-import 'dart:math';
-import 'dart:ui';
 
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 class CoffePage extends StatefulWidget {
   const CoffePage({super.key});
@@ -62,171 +58,162 @@ class _CoffePageState extends State<CoffePage> {
         children: [
           Expanded(
             flex: 4,
-            child: Container(
-              child: Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    width: double.infinity,
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(bottomLeft: Radius.elliptical(50, 50), bottomRight: Radius.elliptical(50, 50)),
-                      child: Image.asset('assets/img/coffe2.jpg', fit: BoxFit.cover),
-                    ),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.vertical(bottom: Radius.elliptical(40, 30)),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                        child: Container(
-                          padding: const EdgeInsets.all(26),
-                          decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.vertical(bottom: Radius.elliptical(40, 30), top: Radius.elliptical(40, 30)),
-                              color: Colors.black26.withOpacity(0.5)),
-                          height: 150,
-                          width: double.infinity,
-                          child: Container(
-                            //color: Colors.blue,
-                            child: Row(
+                  width: double.infinity,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(bottomLeft: Radius.elliptical(50, 50), bottomRight: Radius.elliptical(50, 50)),
+                    child: Image.asset('assets/img/coffe2.jpg', fit: BoxFit.cover),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.vertical(bottom: Radius.elliptical(40, 30)),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(26),
+                        decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.vertical(bottom: Radius.elliptical(40, 30), top: Radius.elliptical(40, 30)),
+                            color: Colors.black26.withOpacity(0.5)),
+                        height: 150,
+                        width: double.infinity,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  child: const Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Cappuccino',
-                                            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
-                                          ),
-                                          Text(
-                                            'With Ota Milk',
-                                            style: TextStyle(
-                                              color: Colors.white70,
-                                            ),
-                                          ),
-                                        ],
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Cappuccino',
+                                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
+                                    ),
+                                    Text(
+                                      'With Ota Milk',
+                                      style: TextStyle(
+                                        color: Colors.white70,
                                       ),
-                                      Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.orange,
-                                            size: 16,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(right: 4),
-                                          ),
-                                          Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                '4.5',
-                                                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                                              ),
-                                              Text(
-                                                '(6.986)',
-                                                style: TextStyle(
-                                                  color: Colors.white70,
-                                                  fontSize: 11,
-                                                  fontStyle: FontStyle.italic,
-                                                  fontWeight: FontWeight.w300,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Container(
-                                            width: 50,
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: const Color.fromRGBO(25, 29, 36, 1),
-                                              borderRadius: BorderRadius.circular(12.5),
-                                            ),
-                                            child: const Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.coffee,
-                                                  size: 18,
-                                                  color: Color.fromRGBO(209, 120, 66, 1),
-                                                ),
-                                                Text(
-                                                  'Coffee',
-                                                  style: TextStyle(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w300),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          const Padding(padding: EdgeInsets.only(left: 10)),
-                                          Container(
-                                            width: 50,
-                                            height: 50,
-                                            decoration: BoxDecoration(
-                                              color: const Color.fromRGBO(25, 29, 36, 1),
-                                              borderRadius: BorderRadius.circular(12.5),
-                                            ),
-                                            child: const Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Icon(
-                                                  Icons.water_drop,
-                                                  size: 18,
-                                                  color: Color.fromRGBO(209, 120, 66, 1),
-                                                ),
-                                                Text(
-                                                  'Milk',
-                                                  style: TextStyle(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w300),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      Container(
-                                        width: 110,
-                                        height: 38,
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromRGBO(25, 29, 36, 1),
-                                          borderRadius: BorderRadius.circular(12.5),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                      size: 16,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 4),
+                                    ),
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          '4.5',
+                                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                                         ),
-                                        child: const Center(
-                                          child: Text(
-                                            'medium Roasted',
-                                            style: TextStyle(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w300),
+                                        Text(
+                                          '(6.986)',
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 11,
+                                            fontStyle: FontStyle.italic,
+                                            fontWeight: FontWeight.w300,
                                           ),
                                         ),
-                                      )
-                                    ],
-                                  ),
+                                      ],
+                                    ),
+                                  ],
                                 )
                               ],
                             ),
-                          ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: const Color.fromRGBO(25, 29, 36, 1),
+                                        borderRadius: BorderRadius.circular(12.5),
+                                      ),
+                                      child: const Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.coffee,
+                                            size: 18,
+                                            color: Color.fromRGBO(209, 120, 66, 1),
+                                          ),
+                                          Text(
+                                            'Coffee',
+                                            style: TextStyle(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w300),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const Padding(padding: EdgeInsets.only(left: 10)),
+                                    Container(
+                                      width: 50,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        color: const Color.fromRGBO(25, 29, 36, 1),
+                                        borderRadius: BorderRadius.circular(12.5),
+                                      ),
+                                      child: const Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.water_drop,
+                                            size: 18,
+                                            color: Color.fromRGBO(209, 120, 66, 1),
+                                          ),
+                                          Text(
+                                            'Milk',
+                                            style: TextStyle(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w300),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  width: 110,
+                                  height: 38,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromRGBO(25, 29, 36, 1),
+                                    borderRadius: BorderRadius.circular(12.5),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      'medium Roasted',
+                                      style: TextStyle(fontSize: 10, color: Colors.white70, fontWeight: FontWeight.w300),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Expanded(
@@ -353,7 +340,7 @@ class _CoffePageState extends State<CoffePage> {
                 )
               ],
             ),
-            Container(
+            SizedBox(
               width: 200,
               height: 50,
               child: TextButton(

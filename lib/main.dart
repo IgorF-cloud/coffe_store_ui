@@ -41,10 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CoffePage(),
+                    builder: (context) => const CoffePage(),
                   ));
             },
-            child: Text('Go')),
+            child: const Text('Start')),
       ),
     );
   }

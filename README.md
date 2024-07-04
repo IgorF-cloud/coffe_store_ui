@@ -1,6 +1,6 @@
-# coffe_ui
+# coffe_store_ui
 
-Coffe Ui
+Coffe Store UI
 
 ## Getting Started
 
