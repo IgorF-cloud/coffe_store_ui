@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,8 @@ class CoffePage extends StatefulWidget {
 }
 
 class _CoffePageState extends State<CoffePage> {
+  String sizeSelected = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +29,8 @@ class _CoffePageState extends State<CoffePage> {
               Navigator.pop(context);
             },
             style: ButtonStyle(
-                shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.5))),
-                backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(25, 29, 36, 1))),
+                shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.5))),
+                backgroundColor: const WidgetStatePropertyAll(Color.fromRGBO(25, 29, 36, 1))),
             icon: const Icon(
               CupertinoIcons.back,
               size: 18,
@@ -43,8 +44,8 @@ class _CoffePageState extends State<CoffePage> {
             child: IconButton(
               onPressed: () {},
               style: ButtonStyle(
-                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.5))),
-                  backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(25, 29, 36, 1))),
+                  shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.5))),
+                  backgroundColor: const WidgetStatePropertyAll(Color.fromRGBO(25, 29, 36, 1))),
               icon: const Icon(
                 Icons.favorite,
                 size: 18,
@@ -238,59 +239,88 @@ class _CoffePageState extends State<CoffePage> {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15.0),
-                    child: Text('Size',
-                      style: TextStyle(fontSize: 12, color: Colors.white70, fontWeight: FontWeight.w400),),
+                    child: Text(
+                      'Size',
+                      style: TextStyle(fontSize: 12, color: Colors.white70, fontWeight: FontWeight.w400),
+                    ),
                   ),
                   Row(
                     children: [
                       Expanded(
-                        child: Container(
-                          height: 36,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(25, 29, 36, 1),
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: const Color.fromRGBO(209, 120, 66, 1), width: 1.5)
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'S',
-                              style: TextStyle(fontSize: 13, color: Color.fromRGBO(209, 120, 66, 1), fontWeight: FontWeight.w500),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              sizeSelected = 'S';
+                            });
+                          },
+                          child: Container(
+                            height: 36,
+                            decoration: BoxDecoration(
+                                color: const Color.fromRGBO(25, 29, 36, 1),
+                                borderRadius: BorderRadius.circular(8),
+                                border:
+                                    Border.all(color: sizeSelected == 'S' ? const Color.fromRGBO(209, 120, 66, 1) : Colors.transparent, width: 1.5)),
+                            child: Center(
+                              child: Text(
+                                'S',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: sizeSelected == 'S' ? const Color.fromRGBO(209, 120, 66, 1) : Colors.white,
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
+                      const SizedBox(width: 10),
                       Expanded(
-                        child: Container(
-                          height: 36,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(25, 29, 36, 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'M',
-                              style: TextStyle(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w500),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              sizeSelected = 'M';
+                            });
+                          },
+                          child: Container(
+                            height: 36,
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(25, 29, 36, 1),
+                              border: Border.all(color: sizeSelected == 'M' ? const Color.fromRGBO(209, 120, 66, 1) : Colors.transparent),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'M',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: sizeSelected == 'M' ? const Color.fromRGBO(209, 120, 66, 1) : Colors.white,
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
+                      const SizedBox(width: 10),
                       Expanded(
-                        child: Container(
-                          height: 36,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(25, 29, 36, 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'L',
-                              style: TextStyle(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w500),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              sizeSelected = 'L';
+                            });
+                          },
+                          child: Container(
+                            height: 36,
+                            decoration: BoxDecoration(
+                                color: const Color.fromRGBO(25, 29, 36, 1),
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(color: sizeSelected == 'L' ? const Color.fromRGBO(209, 120, 66, 1) : Colors.transparent)),
+                            child: Center(
+                              child: Text(
+                                'L',
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: sizeSelected == 'L' ? const Color.fromRGBO(209, 120, 66, 1) : Colors.white,
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ),
                           ),
                         ),
@@ -346,9 +376,10 @@ class _CoffePageState extends State<CoffePage> {
               child: TextButton(
                 onPressed: () {},
                 style: ButtonStyle(
-                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.5))),
-                    //backgroundColor: MaterialStatePropertyAll(Color(0xFFD17842))),
-                  backgroundColor: const MaterialStatePropertyAll(Color.fromRGBO(209, 120, 66, 1))),
+                  shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.5))),
+                  //backgroundColor: MaterialStatePropertyAll(Color(0xFFD17842))),
+                  backgroundColor: const WidgetStatePropertyAll(Color.fromRGBO(209, 120, 66, 1)),
+                ),
                 child: const Text(
                   'Buy Now',
                   style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
