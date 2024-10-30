@@ -1,4 +1,5 @@
 import 'package:coffe_ui/coffe_page.dart';
+import 'package:coffe_ui/pageTeste.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,15 +37,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const CoffePage(),
-                  ));
-            },
-            child: const Text('Start')),
+                  ),
+                );
+              },
+              child: const Text('Coffee'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PageTest(),
+                  ),
+                );
+              },
+              child: const Text('Test'),
+            ),
+          ],
+        ),
       ),
     );
   }
